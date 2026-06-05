@@ -16,14 +16,13 @@ RUN cat > package.json <<'JSON'
     "n8n-nodes-docling-serve": "0.0.2",
     "n8n-nodes-pdf-lib": "0.1.6",
     "n8n-nodes-pdfco": "1.0.6"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "isolated-vm",
-      "n8n-nodes-pdfco"
-    ]
   }
 }
 JSON
+
+RUN cat > .npmrc <<'EOF'
+only-built-dependencies[]=isolated-vm
+only-built-dependencies[]=n8n-nodes-pdfco
+EOF
 
 RUN pnpm install --prod
