@@ -23,4 +23,4 @@ RUN cat > package.json <<'JSON'
 JSON
 
 # Install with pnpm (required by some community nodes)
-RUN pnpm install --prod
+RUN pnpm install --prod --ignore-scripts=false
