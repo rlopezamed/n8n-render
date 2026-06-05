@@ -23,4 +23,5 @@ RUN cat > package.json <<'JSON'
 JSON
 
 # Install with pnpm (required by some community nodes)
-RUN pnpm install --prod --ignore-scripts=false
+RUN pnpm config set only-built-dependencies isolated-vm,n8n-nodes-pdfco
+RUN pnpm install --prod
