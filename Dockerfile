@@ -13,7 +13,7 @@ RUN cat > package.json <<'JSON'
   "private": true,
   "dependencies": {
     "n8n-nodes-browserless": "1.1.3",
-    "n8n-nodes-docling-serve": "0.0.2",
+    "n8n-nodes-docling-serve": "0.0.5",
     "n8n-nodes-pdf-lib": "0.1.6",
     "n8n-nodes-pdfco": "1.0.6"
   },
