@@ -1,0 +1,4 @@
+# pnpm-workspace.yaml
+onlyBuiltDependencies:
+  - isolated-vm
+  - n8n-nodes-pdfco
