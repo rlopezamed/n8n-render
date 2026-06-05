@@ -23,4 +23,5 @@ RUN cat > package.json <<'JSON'
 JSON
 
 # Install with pnpm (required by some community nodes)
+RUN corepack enable && corepack prepare pnpm@10.32.0 --activate
 RUN pnpm install --prod
