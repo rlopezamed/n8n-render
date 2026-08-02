@@ -2,7 +2,8 @@ FROM n8nio/n8n:latest
 
 USER root
 
-RUN mkdir -p /home/node/.n8n/nodes && chown -R node:node /home/node/.n8n
+RUN mkdir -p /home/node/.n8n/nodes \
+    && chown -R node:node /home/node/.n8n
 
 USER node
 WORKDIR /home/node/.n8n/nodes
@@ -16,11 +17,8 @@ RUN cat > package.json <<'JSON'
     "n8n-nodes-docling-serve": "0.0.5",
     "n8n-nodes-pdf-lib": "0.1.6",
     "n8n-nodes-pdfco": "1.0.6"
-  },
-  "pnpm": {
-    "dangerouslyAllowAllBuilds": true
   }
 }
 JSON
 
-RUN pnpm install --prod --config.dangerouslyAllowAllBuilds=true
+RUN npm install --omit=dev
