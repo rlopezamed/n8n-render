@@ -21,4 +21,4 @@ RUN cat > package.json <<'JSON'
 }
 JSON
 
-RUN npm install --omit=dev
+RUN npm install --omit=dev --legacy-peer-deps
