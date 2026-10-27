@@ -10,7 +10,7 @@ const allowedIPs = new Set([
 ]);
 
 const publicPort = Number(process.env.PORT || 10000);
-const internalPort = 5679;
+const internalPort = 5680;
 const publicHost = 'integration.advantismed.com';
 
 if (publicPort === internalPort) {
