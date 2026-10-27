@@ -1,9 +1,9 @@
-FROM n8nio/n8n:latest
+FROM n8nio/n8n:2.43.8
 
 USER root
 
-RUN mkdir -p /home/node/.n8n/nodes \
-    && chown -R node:node /home/node/.n8n
+RUN mkdir -p /home/node/.n8n/nodes /opt/access-proxy \
+    && chown -R node:node /home/node/.n8n /opt/access-proxy
 
 USER node
 WORKDIR /home/node/.n8n/nodes
@@ -22,3 +22,15 @@ RUN cat > package.json <<'JSON'
 JSON
 
 RUN npm install --omit=dev --legacy-peer-deps
+
+WORKDIR /opt/access-proxy
+
+RUN npm init -y \
+    && npm install --omit=dev --save-exact http-proxy@1.18.1
+
+COPY --chown=node:node access-proxy.cjs /opt/access-proxy/access-proxy.cjs
+
+WORKDIR /home/node/.n8n/nodes
+
+ENTRYPOINT ["node", "/opt/access-proxy/access-proxy.cjs"]
+CMD []
