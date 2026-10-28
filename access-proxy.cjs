@@ -12,7 +12,7 @@ const allowedIPs = new Set([
 
 const publicPort = Number(process.env.PORT || 10000);
 const internalPort = 5680;
-const publicHost = 'n8n-adecco.onrender.com';
+const publicHost = 'integration.advantismed.com';
 
 if (publicPort === internalPort) {
   throw new Error('PORT must differ from the internal n8n port.');
