@@ -14,7 +14,8 @@ const allowedIPs = new Set([
 '12.245.211.199',
   '170.85.102.255',
   '170.85.103.27',
-  '99.42.217.8'
+  '99.42.217.8',
+  '52.123.138.200'
 ]);
 
 const publicPort = Number(process.env.PORT || 10000);
